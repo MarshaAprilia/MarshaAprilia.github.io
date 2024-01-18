@@ -1,0 +1,121 @@
+---
+title: "PENGARUH NILAI EKSPOR INDONESIA TERHADAP PERTUMBUHAN EKONOMI DALAM KURUN WAKTU 2014-2019"
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "Marsha Aprilia"
+date: 2024-01-18
+number-sections: true
+format:
+  html: default
+  docx: default
+editor: visual
+---
+
+![](poltekapp.jpg){fig-align="center"}
+
+## Pendahuluan
+
+### Latar belakang
+
+Pengaruh nilai ekspor dengan pertumbuhan ekonomi di Indonesia penting dilakukan untuk memberikan informasi kepada pemerintah dan pemangku kepentingan lainnya dalam mengambil kebijakan untuk mendorong pertumbuhan ekonomi. Analisis tersebut dapat dilakukan dengan menggunakan berbagai metode, seperti analisis regresi dan analisis kuantitatif. Analisis tersebut dapat dilakukan dengan menggunakan data sekunder, seperti data dari Badan Pusat Statistik (BPS), Bank Indonesia, dan Kementerian Keuangan. Informasi tersebut dapat digunakan oleh pemerintah dan pemangku kepentingan lainnya untuk mengambil kebijakan yang tepat untuk mendorong pertumbuhan ekonomi di Indonesia.
+
+### Ruang lingkup
+
+Ruang lingkup dari pengaruh nilai ekspor dan pertumbuhan ekonomi dapat dikaji dari beberapa aspek, yaitu aspek waktu, aspek sektoral dan aspek internasional. Pengaruh nilai ekspor terhadap pertumbuhan ekonomi dapat dikaji dalam jangka pendek, jangka menengah dan jangka panjang. Pengaruh nilai ekspor terhadap pertumbuhan ekonomi dapat dikaji berdasarkan sektor-sektor ekonomi. Sektor-sektor ekonomi yang memiliki keterkaitan kuat dengan ekspor, seperti sektor manufaktur, sektor pertanian, dan sektor pertambangan, akan memiliki pengaruh yang lebih besar terhadap pertumbuhan ekonomi. Pengaruh nilai ekspor terhadap pertumbuhan ekonomi juga dipengaruhi oleh kondisi perekonomian global.
+
+### Rumusan masalah
+
+1.  Pengaruh nilai ekspor terhadap pertumbuhan ekonomi?
+2.  Faktor-faktor yang mempengaruhi hubungan nilai ekspor dengan pertumbuhan ekonomi Tujuan dan manfaat penelitian?
+
+### Package
+
+Ini tidak wajib ada di packages yang digunakan antara lain sebagai berikut:
+
+```{r}
+#| warning: false
+#| echo: true
+library("tidyverse")
+library("readxl")
+library("dplyr")
+```
+
+## Studi pustaka
+
+Salah satu bagian yang penting dalam penelitian adalah melakukan studi literatur, yaitu membaca dari berbagai sumber sesuai dengan topik yang diteliti untuk menghasilkan ide/analisis baru yang dipresentasikan dalam sebuah karya ilmiah.
+
+Bab ini menguraikan dasar-dasar teori dan istilah yang berhubungan dengan permasalahan yang ditemui atau yang mendasari pemilihan topik laporan. Studi Pustaka dilengkapi dengan sumber referensi yang dipakai dan bukan berdasarkan asumsi penulis.
+
+## Metode penelitian
+
+### Data
+
+Penelitian ini menggunakan data nilai ekspor dan pertumbuhan ekonomi.
+
+| Tahun | Nilai Ekspor (Miliar) | Pertumbuhan Ekonomi (%) |
+|-------|-----------------------|-------------------------|
+| 2014  | 291904299995          | 5,01                    |
+| 2015  | 231609479578          | 4,88                    |
+| 2016  | 163191838163          | 5,03                    |
+| 2017  | 167682996134          | 5,07                    |
+| 2018  | 180012674000          | 5,17                    |
+| 2019  | 168828175936          | 5,02                    |
+
+```{r}
+#import dataset
+library(readxl)
+dat<-read_excel('dat.xlsx')
+head(dat)
+```
+
+```{r}
+library("ggplot2")
+library("readxl")
+library("dplyr")
+ggplot(data=dat,aes(x=TNE,y=TPE)) +
+  geom_point(color="blue",size=2) + 
+  labs(title="tabel 1. hubungan antara Nilai Ekspor dan Pertumbuhan Ekonomi",
+       x="Nilai Ekspor",
+       y="Pertumbuhan Ekonomi",
+       caption = "sumber: Badan Pusat Statistik") +
+  theme_classic()
+```
+
+### Metode analisis
+
+Metode yang dipilih adalah regresi univariat atau Ordinary Least Square (OLS) dengan 1 variabel independen. Penelitian ini merbaksud mencari hubungan antara hwy dan cty. Spesifikasi yang dilakukan adalah:
+
+$$
+y_{t}=\beta_0 + \beta_1 x_t+\mu_t
+$$ di mana $y_t$ adalah hwy dan $x_t$ adalah cty.
+
+## Pembahasan
+
+### Pembahasan masalah
+
+Pada bagian ini dapat ditampilkan data dan visualisasi data yang telah dikumpulkan.
+
+```{r}
+#import dataset
+library(readxl)
+dat<-read_excel('dat.xlsx')
+head(dat)
+```
+
+### Analisis masalah
+
+Hasil regresinya adalah
+
+```{r}
+reg1<-lm(TNE~TPE,data=dat)
+summary(reg1)
+```
+
+## Kesimpulan
+
+Berdasarkan analisis dan kajian yang telah dilakukan, dapat disimpulkan bahwa nilai ekspor memiliki pengaruh yang positif terhadap pertumbuhan ekonomi di Indonesia. Peningkatan nilai ekspor akan mendorong pertumbuhan ekonomi. Dalam jangka pendek, ekspor berpengaruh positif terhadap pertumbuhan ekonomi. Dengan adanya peningkatan nilai ekpor akan meningkatkan produksi dalam negeri untuk menggerakan perekonomian tentu diperlukan peningkatan peningkatan produksi dalam negeri yang akan meningkatkan pertumbuhan ekonomi di Indonesia.
+
+## Referensi
+
+Ananda, A. S., Effendi, M. F., Rahmadana, O., & Piliang, S. S. (2024). PENGARUH EKSPOR DAN IMPOR TERHADAP PERTUMBUHAN EKONOMI INDONESIA. *Jurnal Ilmiah Ekonomi Dan Manajemen*, *2*(1), 212-216.
+
+Hodijah, S., & Angelina , G. P. . (2021). ANALISIS PENGARUH EKSPOR DAN IMPOR TERHADAP PERTUMBUHAN EKONOMI DI INDONESIA. *Jurnal Manajemen Terapan Dan Keuangan*, *10*(01), 53-62. https://doi.org/10.22437/jmk.v10i01.12512
